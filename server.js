@@ -35,5 +35,18 @@ app.post('/upload',(request,response) => {
     })
 })
 
+app.post('/formulario',(request, response) => {
+    return response.send({
+        ...request.body,
+        id: 1
+    });
+});
+
+app.get('/parOuImpar',(request, response) => {
+    const par = parseInt(request.query.numero)%2 === 0;
+    response.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
 
 app.listen(3333, () => console.log('Executando'));
